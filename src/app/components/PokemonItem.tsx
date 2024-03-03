@@ -1,4 +1,5 @@
-import { FragmentOf, graphql, readFragment } from '@/graphql';
+import { FragmentOf, graphql, readFragment } from "@/graphql";
+import Link from "next/link";
 
 export const PokemonItemFragment = graphql(`
   fragment PokemonItem on Pokemon {
@@ -19,7 +20,7 @@ const PokemonItem = ({ data }: Props) => {
 
   return (
     <li>
-      {pokemon.name}
+      <Link href={pokemon.id as string}>{pokemon.name}</Link>
     </li>
   );
 };

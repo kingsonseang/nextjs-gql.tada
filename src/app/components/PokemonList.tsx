@@ -1,17 +1,20 @@
-"use client"
+"use client";
 
-import { useQuery } from 'urql';
-import { graphql } from '@/graphql';
-import { PokemonItem, PokemonItemFragment } from './PokemonItem';
+import { useQuery } from "urql";
+import { graphql } from "@/graphql";
+import { PokemonItem, PokemonItemFragment } from "./PokemonItem";
 
-const PokemonsQuery = graphql(`
-  query Pokemons ($limit: Int = 10) {
-    pokemons(limit: $limit) {
-      id
-      ...PokemonItem
+const PokemonsQuery = graphql(
+  `
+    query Pokemons($limit: Int = -1) {
+      pokemons(limit: $limit) {
+        id
+        ...PokemonItem
+      }
     }
-  }
-`, [PokemonItemFragment]);
+  `,
+  [PokemonItemFragment]
+);
 
 const PokemonList = () => {
   const [result] = useQuery({ query: PokemonsQuery });
@@ -26,13 +29,13 @@ const PokemonList = () => {
       </>
     );
   } else if (fetching || !data) {
-    return <h3>Loading...</h3>
+    return <h3>Loading...</h3>;
   }
 
   return (
     <div>
       {data.pokemons ? (
-        <ul>
+        <ul className="list-disc">
           {data.pokemons.map((pokemon, index) => (
             <PokemonItem data={pokemon} key={pokemon?.id || index} />
           ))}
