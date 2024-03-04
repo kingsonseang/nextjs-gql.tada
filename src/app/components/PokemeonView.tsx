@@ -17,10 +17,12 @@ const PokemonQuery = graphql(
           fast {
             name
             damage
+            type
           }
           special {
             name
             damage
+            type
           }
         }
         types
@@ -48,9 +50,7 @@ export default function PokemeonView(props: Props): JSX.Element {
   } else if (fetching || !data) {
     return <h3>Loading...</h3>;
   }
-
-  console.log(data);
-
+  
   return (
     <div className="space-y-3.5">
       <h1 className="text-xl text-center font-semibold">{data.pokemon?.name}</h1>
@@ -70,6 +70,7 @@ export default function PokemeonView(props: Props): JSX.Element {
                 >
                   <p>{attack?.name}</p>
                   <p>{attack?.damage}</p>
+                  <p>{attack?.type}</p>
                 </div>
               );
             })}
@@ -84,6 +85,7 @@ export default function PokemeonView(props: Props): JSX.Element {
                 >
                   <p>{attack?.name}</p>
                   <p>{attack?.damage}</p>
+                  <p>{attack?.type}</p>
                 </div>
               );
             })}
