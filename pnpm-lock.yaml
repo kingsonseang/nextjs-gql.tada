@@ -8,6 +8,9 @@ dependencies:
   '@urql/core':
     specifier: ^4.2.3
     version: 4.2.3
+  '@urql/next':
+    specifier: ^1.1.1
+    version: 1.1.1(next@14.1.1)(react@18.2.0)(urql@4.0.6)
   gql.tada:
     specifier: ^1.2.1
     version: 1.2.1
@@ -427,6 +430,18 @@ packages:
       wonka: 6.3.4
     transitivePeerDependencies:
       - graphql
+    dev: false
+
+  /@urql/next@1.1.1(next@14.1.1)(react@18.2.0)(urql@4.0.6):
+    resolution: {integrity: sha512-dLk4npLZeWDCevua3gM5f8WS1IyyJUsjOvUU9tnFRSjTSn2fQcgYAYZbLfpneLTg+1rYNCLgSMJMuBr95PofTQ==}
+    peerDependencies:
+      next: '>=13.0.0'
+      react: '>=18.0.0'
+      urql: ^4.0.0
+    dependencies:
+      next: 14.1.1(react-dom@18.2.0)(react@18.2.0)
+      react: 18.2.0
+      urql: 4.0.6(react@18.2.0)
     dev: false
 
   /acorn-jsx@5.3.2(acorn@8.11.3):
