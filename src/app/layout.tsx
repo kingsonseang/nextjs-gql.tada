@@ -17,8 +17,8 @@ export default function RootLayout({
 }>) {
   return (
     <UrqlProvider>
-      <html lang="en">
-        <body className={inter.className}>{children}</body>
+      <html lang="en" className="dark">
+        <body className={`${inter.className} bg-black`}>{children}</body>
       </html>
     </UrqlProvider>
   );
